@@ -1,5 +1,5 @@
-import React, {useEffect, useMemo, useState} from "react";
-import {createRoot} from "react-dom/client";
+import React, { useState, useEffect } from "react";
+import { createRoot } from "react-dom/client";
 import "./styles.css";
 
 const starter = {
@@ -211,4 +211,4 @@ function RegistrationAdmin({items,setItems,notify}){
   return <div className="adminPanel"><h2>Registrations</h2>{!items.length?<div className="empty">No registrations yet.</div>:<div className="tableWrap"><table><thead><tr><th>Registration</th><th>Name</th><th>Phone</th><th>Class</th><th>Payment</th><th>Action</th></tr></thead><tbody>{items.map(x=><tr key={x.id}><td>{x.reg}</td><td>{x.fullName}</td><td>{x.phone}</td><td>{x.className}</td><td>{x.paymentStatus}</td><td><select value={x.paymentStatus} onChange={e=>update(x.id,e.target.value)}><option>Pending</option><option>Paid</option><option>Partially Paid</option><option>Cancelled</option></select></td></tr>)}</tbody></table></div>}</div>
 }
 
-createRoot(document.getElementById("root")).render(<App/>);
+createRoot(document.getElementById("root")).render(<App />);
